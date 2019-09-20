@@ -1,0 +1,24 @@
+<app-painel-simples
+  titulo="Faturamento"
+  col="12"
+  tipo="primary">
+
+  <table *ngIf="!houveErro; else mensagem" class="table table-hover">
+      <thead>
+          <tr>
+              <th>Descrição</th>
+              <th>Valor</th>
+          </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let faturamento of faturamento?.detalhamento">
+          <td>{{faturamento.descricao}}</td>
+          <td>{{faturamento.valor | currency:'BRL'}}</td>
+      </tr>
+      </tbody>
+  </table>
+  <ng-template #mensagem>
+    <app-falha-acesso-servidor></app-falha-acesso-servidor>
+  </ng-template>
+
+</app-painel-simples>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Produto } from './produto';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'minha-primeira-aplicacao';
+  public exibirConteudo = false;
+
+  produtosX: Produto[] = [];
+
+  constructor() {
+    const p = new Produto();
+    p.id = 1;
+    p.nome = 'Macarrão';
+    this.produtosX.push(p);
+  }
+
+  public toggleConteudo() {
+    this.exibirConteudo = !this.exibirConteudo;
+  }
 }
